@@ -8,15 +8,9 @@ import com.google.cloud.pubsub.v1.TopicAdminClient
 import com.google.cloud.pubsub.v1.TopicAdminSettings
 import com.google.pubsub.v1.ProjectTopicName
 import io.grpc.ManagedChannelBuilder
-import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.runApplication
 
-@SpringBootApplication
-class DemoApplication
 
 fun main(args: Array<String>) {
-	runApplication<DemoApplication>(*args)
-
 	PubSubPublisher()
 }
 

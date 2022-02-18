@@ -1,10 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.springframework.boot") version "2.6.3"
-	id("io.spring.dependency-management") version "1.0.11.RELEASE"
+	application
 	kotlin("jvm") version "1.6.10"
-	kotlin("plugin.spring") version "1.6.10"
 }
 
 group = "com.example"
@@ -15,24 +13,16 @@ repositories {
 	mavenCentral()
 }
 
-extra["springCloudGcpVersion"] = "3.1.0"
-extra["springCloudVersion"] = "2021.0.0"
-
 dependencies {
-//	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-	implementation("com.google.cloud:spring-cloud-gcp-starter-pubsub")
-	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
-//	implementation(platform("com.google.cloud:libraries-bom:24.3.0"))
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1")
+	implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.10")
+	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.10")
+	implementation("com.google.cloud:google-cloud-pubsub:1.115.5")
+	implementation(platform("com.google.cloud:libraries-bom:24.3.0"))
 }
 
-dependencyManagement {
-	imports {
-		mavenBom("com.google.cloud:spring-cloud-gcp-dependencies:${property("springCloudGcpVersion")}")
-		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
-	}
+application {
+	mainClass.set("com.example.demo.DemoApplicationKt")
 }
 
 tasks.withType<KotlinCompile> {
