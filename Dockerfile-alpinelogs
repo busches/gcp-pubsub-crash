@@ -1,0 +1,12 @@
+FROM alpine:3.15.0
+
+RUN apk add --update-cache \
+    openjdk17 \
+    && rm -rf /var/cache/apk/*
+
+COPY . /src
+WORKDIR /src
+RUN ./gradlew bootJar
+
+RUN find /tmp -name libio* -exec ldd {} \;
+RUN find /tmp -name libio* -exec readelf -d {} \;
