@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  pubsub:
+    image: google/cloud-sdk:373.0.0-emulators
+
+  app:
+    build: .
