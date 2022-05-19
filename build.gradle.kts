@@ -17,8 +17,8 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1")
 	implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.10")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.10")
-	implementation("com.google.cloud:google-cloud-pubsub:1.115.5")
-	implementation(platform("com.google.cloud:libraries-bom:24.3.0"))
+	implementation("com.google.cloud:google-cloud-pubsub:1.117.0")
+	implementation(platform("com.google.cloud:libraries-bom:25.3.0"))
 }
 
 application {
